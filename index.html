@@ -8,17 +8,13 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>">
     <link href="https://unpkg.com/@primer/css@^19.1.0/dist/primer.css" rel="stylesheet">
     <script>
-        function toggleDescription(id) {
-            const descriptionDiv = document.getElementById(id);
-            if (!descriptionDiv.classList.contains('d-none')) {
-                descriptionDiv.classList.add('d-none');
+        function toggleDisplay(id) {
+            const element = document.getElementById(id);
+            if (!element.classList.contains('d-none')) {
+                element.classList.add('d-none');
             } else {
-                descriptionDiv.classList.remove('d-none');
+                element.classList.remove('d-none');
             }
-        }
-
-        function hideDescription(id) {
-            document.getElementById(id).classList.add('d-none');
         }
     </script>
 </head>
@@ -34,7 +30,7 @@
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="Layout-main flex-1">
         <div class="container-md p-3">
 
@@ -51,16 +47,23 @@
                         <p>Welcome to my personal website!</p>
 
                         <br>
+                        
+                        <button class="btn" type="button" onclick="toggleDisplay('contact-information'); return false;">Contact</button>
 
-                        <p>
-                            <svg class="octicon octicon-github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                            GitHub: <a href="https://github.com/tonyma99">tonyma99</a>
-                        </p>
+                        <div id="contact-information" class="flash p-3 mt-3 d-none">
+                            <button class="flash-close js-flash-close" type="button" onclick="toggleDisplay('contact-information'); return false;" aria-label="Close">
+                                <svg class="octicon octicon-x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">  <path fill-rule="evenodd" clip-rule="evenodd" d="M3.72 3.72C3.86062 3.57955 4.05125 3.50066 4.25 3.50066C4.44875 3.50066 4.63937 3.57955 4.78 3.72L8 6.94L11.22 3.72C11.2887 3.64631 11.3715 3.58721 11.4635 3.54622C11.5555 3.50523 11.6548 3.48319 11.7555 3.48141C11.8562 3.47963 11.9562 3.49816 12.0496 3.53588C12.143 3.5736 12.2278 3.62974 12.299 3.70096C12.3703 3.77218 12.4264 3.85702 12.4641 3.9504C12.5018 4.04379 12.5204 4.14382 12.5186 4.24452C12.5168 4.34523 12.4948 4.44454 12.4538 4.53654C12.4128 4.62854 12.3537 4.71134 12.28 4.78L9.06 8L12.28 11.22C12.3537 11.2887 12.4128 11.3715 12.4538 11.4635C12.4948 11.5555 12.5168 11.6548 12.5186 11.7555C12.5204 11.8562 12.5018 11.9562 12.4641 12.0496C12.4264 12.143 12.3703 12.2278 12.299 12.299C12.2278 12.3703 12.143 12.4264 12.0496 12.4641C11.9562 12.5018 11.8562 12.5204 11.7555 12.5186C11.6548 12.5168 11.5555 12.4948 11.4635 12.4538C11.3715 12.4128 11.2887 12.3537 11.22 12.28L8 9.06L4.78 12.28C4.63782 12.4125 4.44977 12.4846 4.25547 12.4812C4.06117 12.4777 3.87579 12.399 3.73837 12.2616C3.60096 12.1242 3.52225 11.9388 3.51882 11.7445C3.51539 11.5502 3.58752 11.3622 3.72 11.22L6.94 8L3.72 4.78C3.57955 4.63938 3.50066 4.44875 3.50066 4.25C3.50066 4.05125 3.57955 3.86063 3.72 3.72Z"></path></svg>
+                            </button>
+                            <p>
+                                <svg class="octicon octicon-github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                                GitHub: <a href="https://github.com/tonyma99">tonyma99</a>
+                            </p>
 
-                        <p>
-                            <svg class="octicon octicon-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z"></path></svg>
-                            Email: <a href="mailto:tonyphma@gmail.com">tonyphma@gmail.com</a>
-                        </p>
+                            <p>
+                                <svg class="octicon octicon-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z"></path></svg>
+                                Email: <a href="mailto:tonyphma@gmail.com">tonyphma@gmail.com</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -70,16 +73,17 @@
                 <div class="Box-header">
                     <h3 class="d-inline"><span class="mr-2">⛳️</span> Personal Projects</h3>
                 </div>
+                <!-- Projects-1 -->
                 <div class="Box-row Box-row--hover-gray">
                     <svg class="octicon octicon-code" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" ><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
-                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDescription('project-description-1'); return false;">website</a></span>
+                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDisplay('project-description-1'); return false;">website</a></span>
                     <span class="color-fg-muted hide-sm pl-3">Source code for my personal website</span>
                     <span class="color-fg-muted float-right">Dec 2021</span>
                 </div>
                 <div id="project-description-1" class="project-description color-bg-inset Box-row Box-row--hover-gray d-none">
                     <div class="markdown-body pb-2">
                         <div>
-                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="hideDescription('project-description-1'); return false;">Collapse</button>
+                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="toggleDisplay('project-description-1'); return false;">Collapse</button>
                             <div class="f5 float-right">
                                 <svg class="color-fg-success octicon octicon-dot-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
                                 <span class="color-fg-muted">Complete</span>
@@ -103,17 +107,17 @@
                         <p><a href="https://github.com/tonyma99/website">GitHub</a></p>
                     </div>
                 </div>
-                <!---->
+                <!-- Projects-2 -->
                 <div class="Box-row Box-row--hover-gray">
                     <svg class="octicon octicon-code" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" ><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
-                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDescription('project-description-2'); return false;">g-talk</a></span>
+                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDisplay('project-description-2'); return false;">g-talk</a></span>
                     <span class="color-fg-muted hide-sm pl-3">Command line chat room application</span>
                     <span class="color-fg-muted float-right">Dec 2021</span>
                 </div>
                 <div id="project-description-2" class="project-description color-bg-inset Box-row Box-row--hover-gray d-none">
                     <div class="markdown-body pb-2">
                         <div>
-                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="hideDescription('project-description-2'); return false;">Collapse</button>
+                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="toggleDisplay('project-description-2'); return false;">Collapse</button>
                             <div class="f5 float-right">
                                 <svg class="color-fg-attention octicon octicon-dot-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
                                 <span class="color-fg-muted">In progress</span>
@@ -132,17 +136,17 @@
                         <p>Applying what I learned in my operating systems class.</p>
                     </div>
                 </div>
-                <!---->
+                <!-- Projects-3 -->
                 <div class="Box-row Box-row--hover-gray">
                     <svg class="octicon octicon-code" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" ><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
-                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDescription('project-description-3'); return false;">short</a></span>
+                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDisplay('project-description-3'); return false;">short</a></span>
                     <span class="color-fg-muted hide-sm pl-3">Simple URL shortener</span>
                     <span class="color-fg-muted float-right">Nov 2021</span>
                 </div>
                 <div id="project-description-3" class="project-description color-bg-inset Box-row Box-row--hover-gray d-none">
                     <div class="markdown-body pb-2">
                         <div>
-                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="hideDescription('project-description-3'); return false;">Collapse</button>
+                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="toggleDisplay('project-description-3'); return false;">Collapse</button>
                             <div class="f5 float-right">
                                 <svg class="color-fg-success octicon octicon-dot-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
                                 <span class="color-fg-muted">Complete</span>
@@ -169,17 +173,17 @@
                         </p>
                     </div>
                 </div>
-                <!---->
+                <!-- Projects-4 -->
                 <div class="Box-row Box-row--hover-gray">
                     <svg class="octicon octicon-code" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" ><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 011.06 1.06L2.06 8l3.72 3.72a.75.75 0 11-1.06 1.06L.47 8.53a.75.75 0 010-1.06l4.25-4.25zm6.56 0a.75.75 0 10-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 101.06 1.06l4.25-4.25a.75.75 0 000-1.06l-4.25-4.25z"></path></svg>
-                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDescription('project-description-4'); return false;">notes</a></span>
+                    <span class="pl-2"><a class="Link" href="#" onclick="toggleDisplay('project-description-4'); return false;">notes</a></span>
                     <span class="color-fg-muted hide-sm pl-3">Markdown notes management system</span>
                     <span class="color-fg-muted float-right">Sept 2021</span>
                 </div>
                 <div id="project-description-4" class="project-description color-bg-inset Box-row Box-row--hover-gray d-none">
                     <div class="markdown-body pb-2">
                         <div>
-                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="hideDescription('project-description-4'); return false;">Collapse</button>
+                            <button class="btn btn-danger color-bg-subtle" type="button" onclick="toggleDisplay('project-description-4'); return false;">Collapse</button>
                             <div class="f5 float-right">
                                 <svg class="color-fg-attention octicon octicon-dot-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path></svg>
                                 <span class="color-fg-muted">In progress</span>
@@ -192,13 +196,14 @@
                             <span class="Label Label--secondary">Python</span>
                         </p>
                         
-                        <p>A system I wrote in Python to help me process and view my notes written in Markdown.</p>
+                        <p>A program I wrote in Python to help me manage, process and view my notes written in Markdown.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Volunteering -->
             <div class="Box my-3">
+                <!-- Volunteering-1 -->
                 <div class="Box-header">
                     <h3 class="d-inline"><span class="mr-2">🎗</span> Volunteering</h3>
                 </div>
