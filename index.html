@@ -10,11 +10,11 @@
     <script>
         function toggleDisplay(id) {
             const element = document.getElementById(id);
-            if (!element.classList.contains('d-none')) {
-                element.classList.add('d-none');
-            } else {
-                element.classList.remove('d-none');
+            const elementHidden = element.classList.contains('d-none');
+            for (const item of document.getElementsByClassName('project-description')) {
+                item.classList.add('d-none');
             }
+            if (elementHidden) element.classList.remove('d-none');
         }
     </script>
 </head>
